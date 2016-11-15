@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="ActivityThread
+ActivityThread不是一个线程， 运行在主线程的方法中。
+
+如何被启动的
+main
+Looper.prepareMainLooper();//创建主线程消息轮询对象
+ActivityThread thread = new ActivityThread();//创建自己
+thread.attach(false);
+Looper.loop();//轮询对象Act">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解Activity">
+<meta property="og:url" content="http://yoursite.com/2016/11/03/深入理解Activity/index.html">
+<meta property="og:site_name" content="Jiaji's blog">
+<meta property="og:description" content="ActivityThread
+ActivityThread不是一个线程， 运行在主线程的方法中。
+
+如何被启动的
+main
+Looper.prepareMainLooper();//创建主线程消息轮询对象
+ActivityThread thread = new ActivityThread();//创建自己
+thread.attach(false);
+Looper.loop();//轮询对象Act">
+<meta property="og:updated_time" content="2016-11-15T05:58:55.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解Activity">
+<meta name="twitter:description" content="ActivityThread
+ActivityThread不是一个线程， 运行在主线程的方法中。
+
+如何被启动的
+main
+Looper.prepareMainLooper();//创建主线程消息轮询对象
+ActivityThread thread = new ActivityThread();//创建自己
+thread.attach(false);
+Looper.loop();//轮询对象Act">
+    
+    
+    <!-- title -->
+    <title>深入理解Activity</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/xujiaji">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <ul>
+        
+        <li><a class="icon" href="/2016/11/03/文件传输/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/10/30/Linux常用命令/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+        <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/11/03/深入理解Activity/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/11/03/深入理解Activity/&text=深入理解Activity"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/11/03/深入理解Activity/&title=深入理解Activity"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/11/03/深入理解Activity/&is_video=false&description=深入理解Activity"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="mailto:?subject=深入理解Activity&body=Check out this article: http://yoursite.com/2016/11/03/深入理解Activity/"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/11/03/深入理解Activity/&title=深入理解Activity"><i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/11/03/深入理解Activity/&title=深入理解Activity"><i class="fa fa-reddit" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/11/03/深入理解Activity/&title=深入理解Activity"><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/11/03/深入理解Activity/&title=深入理解Activity"><i class="fa fa-digg" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/11/03/深入理解Activity/&name=深入理解Activity&description="><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ActivityThread"><span class="toc-number">1.</span> <span class="toc-text">ActivityThread</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何被启动的"><span class="toc-number">1.1.</span> <span class="toc-text">如何被启动的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity启动完成后如何通知AMS呢？"><span class="toc-number">1.2.</span> <span class="toc-text">Activity启动完成后如何通知AMS呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationThread"><span class="toc-number">1.3.</span> <span class="toc-text">ApplicationThread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActivityClientRecord"><span class="toc-number">1.4.</span> <span class="toc-text">ActivityClientRecord</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity的生命周期的方法是什么时候调用的"><span class="toc-number">2.</span> <span class="toc-text">Activity的生命周期的方法是什么时候调用的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Instrumentation"><span class="toc-number">2.1.</span> <span class="toc-text">Instrumentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActivityManagerNative"><span class="toc-number">2.2.</span> <span class="toc-text">ActivityManagerNative</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H-handler"><span class="toc-number">2.3.</span> <span class="toc-text">H handler</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#handleLaunchActivity-performLaunchActivity"><span class="toc-number">2.3.1.</span> <span class="toc-text">handleLaunchActivity_performLaunchActivity</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        深入理解Activity
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Jiaji's blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-11-02T16:00:00.000Z" itemprop="datePublished">2016-11-03</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Activity/">Activity</a>, <a class="tag-link" href="/tags/Android/">Android</a>, <a class="tag-link" href="/tags/进阶/">进阶</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="ActivityThread"><a href="#ActivityThread" class="headerlink" title="ActivityThread"></a>ActivityThread</h2><blockquote>
+<p>ActivityThread不是一个线程， 运行在主线程的方法中。</p>
+</blockquote>
+<h3 id="如何被启动的"><a href="#如何被启动的" class="headerlink" title="如何被启动的"></a>如何被启动的</h3><ul>
+<li>main</li>
+<li>Looper.prepareMainLooper();//创建主线程消息轮询对象</li>
+<li>ActivityThread thread = new ActivityThread();//创建自己</li>
+<li>thread.attach(false);</li>
+<li>Looper.loop();//轮询对象<h3 id="Activity启动完成后如何通知AMS呢？"><a href="#Activity启动完成后如何通知AMS呢？" class="headerlink" title="Activity启动完成后如何通知AMS呢？"></a>Activity启动完成后如何通知AMS呢？</h3></li>
+<li>AMS：Activity Manager Service</li>
+<li>IActivityManager mgr = ActivityManagerNative.getDefault();//AMS通过一个远程代理对象获取</li>
+<li>mgr.attachApplication(mAppThread);</li>
+</ul>
+<h3 id="ApplicationThread"><a href="#ApplicationThread" class="headerlink" title="ApplicationThread"></a>ApplicationThread</h3><blockquote>
+<p>其父类ApplicationThreadNative是Binder的子类</p>
+</blockquote>
+<h3 id="ActivityClientRecord"><a href="#ActivityClientRecord" class="headerlink" title="ActivityClientRecord"></a>ActivityClientRecord</h3><blockquote>
+<p>记录Activity的相关信息</p>
+</blockquote>
+<h2 id="Activity的生命周期的方法是什么时候调用的"><a href="#Activity的生命周期的方法是什么时候调用的" class="headerlink" title="Activity的生命周期的方法是什么时候调用的"></a>Activity的生命周期的方法是什么时候调用的</h2><h3 id="Instrumentation"><a href="#Instrumentation" class="headerlink" title="Instrumentation"></a>Instrumentation</h3><blockquote>
+<p>Application的创建、生命周期的管理、启动Activity，辅助管理Activity的作用</p>
+</blockquote>
+<h3 id="ActivityManagerNative"><a href="#ActivityManagerNative" class="headerlink" title="ActivityManagerNative"></a>ActivityManagerNative</h3><blockquote>
+<p>AMS远程代理</p>
+</blockquote>
+<h3 id="H-handler"><a href="#H-handler" class="headerlink" title="H handler"></a>H handler</h3><blockquote>
+<p>处理AMS发过来的具体消息</p>
+<h4 id="handleLaunchActivity-performLaunchActivity"><a href="#handleLaunchActivity-performLaunchActivity" class="headerlink" title="handleLaunchActivity_performLaunchActivity"></a>handleLaunchActivity_performLaunchActivity</h4><ul>
+<li>classLoader加载相关Activity</li>
+<li>Application对象创立</li>
+<li>activity.attach()</li>
+<li>window对象和Activity进行并联，activity.attach()</li>
+</ul>
+</blockquote>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+      </div>
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Jiaji&#39;s blog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/xujiaji">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'jiajixu';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

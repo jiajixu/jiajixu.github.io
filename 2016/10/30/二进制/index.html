@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="二进制的概念
+二进制表示：57
+
+111001
+2 * (6 - 1) + 2 * (5 - 1) + 2 * (4 - 1) + 2 * (1 - 1) = 32 + 16 + 8 + 1 = 57
+
+十进制换二进制：短除2
+
+除法         商     余数
+57/2        28      1
+28/2        14      0
+14/2        7       0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二进制">
+<meta property="og:url" content="http://yoursite.com/2016/10/30/二进制/index.html">
+<meta property="og:site_name" content="Jiaji's blog">
+<meta property="og:description" content="二进制的概念
+二进制表示：57
+
+111001
+2 * (6 - 1) + 2 * (5 - 1) + 2 * (4 - 1) + 2 * (1 - 1) = 32 + 16 + 8 + 1 = 57
+
+十进制换二进制：短除2
+
+除法         商     余数
+57/2        28      1
+28/2        14      0
+14/2        7       0">
+<meta property="og:updated_time" content="2016-11-15T05:54:46.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二进制">
+<meta name="twitter:description" content="二进制的概念
+二进制表示：57
+
+111001
+2 * (6 - 1) + 2 * (5 - 1) + 2 * (4 - 1) + 2 * (1 - 1) = 32 + 16 + 8 + 1 = 57
+
+十进制换二进制：短除2
+
+除法         商     余数
+57/2        28      1
+28/2        14      0
+14/2        7       0">
+    
+    
+    <!-- title -->
+    <title>二进制</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/xujiaji">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <ul>
+        
+        <li><a class="icon" href="/2016/10/30/Linux常用命令/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+        <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/10/30/二进制/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/10/30/二进制/&text=二进制"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/10/30/二进制/&title=二进制"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/10/30/二进制/&is_video=false&description=二进制"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="mailto:?subject=二进制&body=Check out this article: http://yoursite.com/2016/10/30/二进制/"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/10/30/二进制/&title=二进制"><i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/10/30/二进制/&title=二进制"><i class="fa fa-reddit" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/10/30/二进制/&title=二进制"><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/10/30/二进制/&title=二进制"><i class="fa fa-digg" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/10/30/二进制/&name=二进制&description="><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制的概念"><span class="toc-number">1.</span> <span class="toc-text">二进制的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用进制的换算"><span class="toc-number">2.</span> <span class="toc-text">常用进制的换算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制位运算"><span class="toc-number">3.</span> <span class="toc-text">二进制位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA内置的进制转换"><span class="toc-number">4.</span> <span class="toc-text">JAVA内置的进制转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中数据类型"><span class="toc-number">5.</span> <span class="toc-text">Java中数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据类型-转化-字节"><span class="toc-number">6.</span> <span class="toc-text">数据类型   转化  字节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过Java代码实现数据类型和字节的互转"><span class="toc-number">6.1.</span> <span class="toc-text">通过Java代码实现数据类型和字节的互转</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        二进制
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Jiaji's blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-10-29T16:00:00.000Z" itemprop="datePublished">2016-10-30</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>, <a class="tag-link" href="/tags/概念/">概念</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="二进制的概念"><a href="#二进制的概念" class="headerlink" title="二进制的概念"></a>二进制的概念</h2><blockquote>
+<p>二进制表示：57</p>
+</blockquote>
+<pre><code>111001
+2 * (6 - 1) + 2 * (5 - 1) + 2 * (4 - 1) + 2 * (1 - 1) = 32 + 16 + 8 + 1 = 57
+</code></pre><blockquote>
+<p>十进制换二进制：短除2</p>
+</blockquote>
+<pre><code>除法         商     余数
+57/2        28      1
+28/2        14      0
+14/2        7       0
+ 7/2        3       1
+ 3/2        1       1
+ 1/2        0       1
+ 将余数从下往上数，答案：111001
+</code></pre><blockquote>
+<p>适合计算机的进制</p>
+</blockquote>
+<pre><code>二进制
+    计算机内部用二进制：运算简单，简化了计算机结构
+其他进制
+    八进制：适用于12位和36位计算机系统
+        标志的开头用0（零）表示，用0~7的数字表示
+    16进制：用0~9,A,B,C,D,E,F表示
+        表达长度短，变得更常用。标志的开头用0x表示
+</code></pre><h2 id="常用进制的换算"><a href="#常用进制的换算" class="headerlink" title="常用进制的换算"></a>常用进制的换算</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">十进制</th>
+<th style="text-align:center">二进制</th>
+<th style="text-align:center">八进制</th>
+<th style="text-align:center">十六进制</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">十进制</th>
+<th style="text-align:center">二进制</th>
+<th style="text-align:center">八进制</th>
+<th style="text-align:center">十六进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0000</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0001</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1001</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">9</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0010</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">1010</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">A</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0011</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">1011</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">B</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0100</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">1100</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">C</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0101</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">1101</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">D</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">0110</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">1110</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">E</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">0111</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">1111</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">F</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二进制位运算"><a href="#二进制位运算" class="headerlink" title="二进制位运算"></a>二进制位运算</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th style="text-align:left">名字</th>
+<th style="text-align:left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&amp;</td>
+<td style="text-align:left">与运算</td>
+<td style="text-align:left">6 &amp; 3 = 2</td>
+</tr>
+<tr>
+<td style="text-align:center">&#124;</td>
+<td style="text-align:left">或运算</td>
+<td style="text-align:left">6 &#124; 3 = 7</td>
+</tr>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:left">异或运算</td>
+<td style="text-align:left">6  ^ 3 = 5</td>
+</tr>
+<tr>
+<td style="text-align:center">~</td>
+<td style="text-align:left">反码</td>
+<td style="text-align:left">~6 = -7</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;&lt;</td>
+<td style="text-align:left">左移</td>
+<td style="text-align:left">3 &lt;&lt; 2 = 12  (3 <em> 2 </em> 2 = 12)</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;&gt;</td>
+<td style="text-align:left">右移</td>
+<td style="text-align:left">3 &gt;&gt; 1 = 1   (3 / 2 = 1)</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;&gt;&gt;</td>
+<td style="text-align:left">无符号右移</td>
+<td style="text-align:left">3 &gt;&gt;&gt; 1 = 1  (3 / 2 = 1)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>两变量交换值</p>
+</blockquote>
+<pre><code>1.借助第三个变量：C=A;A=B;B=C;
+2.利用加减法：A=A+B;B=A-B;A=A-B;
+3.异或运算实现：A=A^B;B=A^B;A=A^B;
+</code></pre><h2 id="JAVA内置的进制转换"><a href="#JAVA内置的进制转换" class="headerlink" title="JAVA内置的进制转换"></a>JAVA内置的进制转换</h2><table>
+<thead>
+<tr>
+<th>转换</th>
+<th>代码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十进制转成十六进制</td>
+<td>Integer.toHexString(66)</td>
+</tr>
+<tr>
+<td>十进制转成八进制</td>
+<td>Integer.toOctalString(66)</td>
+</tr>
+<tr>
+<td>十进制转成二进制</td>
+<td>Integer.toBinaryString(66)</td>
+</tr>
+<tr>
+<td>十六进制转成十进制</td>
+<td>Integer.valueOf(“42”, 16)</td>
+</tr>
+<tr>
+<td>八进制转成十进制</td>
+<td>Integer.valueOf(“102”, 8)</td>
+</tr>
+<tr>
+<td>二进制转成十进制</td>
+<td>Integer.valueOf(“1000010”, 2)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Java中数据类型"><a href="#Java中数据类型" class="headerlink" title="Java中数据类型"></a>Java中数据类型</h2><blockquote>
+<p>int数据类型有以下四种</p>
+</blockquote>
+<pre><code>int数据类型有：
+     byte(8bit, -128~127)
+     short(16bit)
+     int(32bit)
+     long(64bit)
+float数据类型有：
+    单精度（32bit float）、双精度（64bit double）
+boolean类型变量的取值有：true、false
+char数据类型有：unicode字符，16位
+</code></pre><h2 id="数据类型-转化-字节"><a href="#数据类型-转化-字节" class="headerlink" title="数据类型   转化  字节"></a>数据类型   转化  字节</h2><blockquote>
+<p>例：8143（00000000 00000000 00011111 11001111）<br>=&gt; byte[] b = {-49,31,0,0};</p>
+</blockquote>
+<pre><code>第一个（低端）字节：8143 &gt;&gt; 0 * 8 &amp; 0xff = (11001111) = 207(或有符号-49)
+第二个（低端）字节：8143 &gt;&gt; 1 * 8 &amp; 0xff = (00011111) = 31
+第三个（低端）字节：8143 &gt;&gt; 2 * 8 &amp; 0xff = (00000000) = 0
+第四个（低端）字节：8143 &gt;&gt; 3 * 8 &amp; 0xff = (00000000) = 0
+</code></pre><ul>
+<li>小端法（低端）：从低位开始存放入字节数组</li>
+<li>大端法（高端）：从高位开始存放入字节数组</li>
+</ul>
+<blockquote>
+<p>字符串 -&gt; 字节数组</p>
+</blockquote>
+<pre><code>String s = &quot;abcde&quot;; byte[] bs = s.getBytes();
+</code></pre><blockquote>
+<p>字节数组 -&gt; 字符串</p>
+</blockquote>
+<pre><code>byte[] bs = new byte[int];
+String s = new String(bs);
+或
+String s  = new String(bs, encode);//encode指编码方式如：gb2312、utf-8
+</code></pre><h3 id="通过Java代码实现数据类型和字节的互转"><a href="#通过Java代码实现数据类型和字节的互转" class="headerlink" title="通过Java代码实现数据类型和字节的互转"></a>通过Java代码实现数据类型和字节的互转</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] int2Bytes(<span class="keyword">int</span> id) &#123;</div><div class="line">    <span class="keyword">byte</span>[] arr = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, i &lt; arr.length; i++) &#123;</div><div class="line">        arr[i] = (<span class="keyword">byte</span>)((id &gt;&gt; i * <span class="number">8</span>) &amp; <span class="number">0xff</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">bytes2Int</span><span class="params">(<span class="keyword">byte</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        result += (<span class="keyword">int</span>)((arr[i] &amp; <span class="number">0xff</span>) &lt;&lt; i * <span class="number">8</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] long2Bytes(<span class="keyword">long</span> id) &#123;</div><div class="line">    <span class="keyword">byte</span>[] arr = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">8</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, i &lt; arr.length; i++) &#123;</div><div class="line">        arr[i] = (<span class="keyword">byte</span>)((id &gt;&gt; i * <span class="number">8</span>) &amp; <span class="number">0xff</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">bytes2Long</span><span class="params">(<span class="keyword">byte</span>[] arr)</span> </span>&#123;</div><div class="line">    <span class="keyword">long</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        result += (<span class="keyword">long</span>)((arr[i] &amp; <span class="number">0xff</span>) &lt;&lt; i * <span class="number">8</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+      </div>
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Jiaji&#39;s blog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/xujiaji">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'jiajixu';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>

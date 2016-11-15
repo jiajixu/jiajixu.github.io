@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="简介Linux中一切皆文件包括硬件也是文件。
+字符界面占用的系统资源资源更少，让操作系统更稳定。
+Linux不靠扩展名区分文件类型
+约定名字：
+
+压缩包：.gz、.bz2、.tar.bz2 、.tgz等
+二进制软件包：.rpm
+网页文件:.html、.php
+脚本文件：.sh
+配置文件：.conf
+查询目录中的内容：lsls [选项] [文件或目录]
+
+选项：
+
+-a 显示所有文件，包括隐藏文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令">
+<meta property="og:url" content="http://yoursite.com/2016/10/30/Linux常用命令/index.html">
+<meta property="og:site_name" content="Jiaji's blog">
+<meta property="og:description" content="简介Linux中一切皆文件包括硬件也是文件。
+字符界面占用的系统资源资源更少，让操作系统更稳定。
+Linux不靠扩展名区分文件类型
+约定名字：
+
+压缩包：.gz、.bz2、.tar.bz2 、.tgz等
+二进制软件包：.rpm
+网页文件:.html、.php
+脚本文件：.sh
+配置文件：.conf
+查询目录中的内容：lsls [选项] [文件或目录]
+
+选项：
+
+-a 显示所有文件，包括隐藏文件">
+<meta property="og:updated_time" content="2016-11-15T05:46:55.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux常用命令">
+<meta name="twitter:description" content="简介Linux中一切皆文件包括硬件也是文件。
+字符界面占用的系统资源资源更少，让操作系统更稳定。
+Linux不靠扩展名区分文件类型
+约定名字：
+
+压缩包：.gz、.bz2、.tar.bz2 、.tgz等
+二进制软件包：.rpm
+网页文件:.html、.php
+脚本文件：.sh
+配置文件：.conf
+查询目录中的内容：lsls [选项] [文件或目录]
+
+选项：
+
+-a 显示所有文件，包括隐藏文件">
+    
+    
+    <!-- title -->
+    <title>Linux常用命令</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/xujiaji">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <ul>
+        
+        <li><a class="icon" href="/2016/11/03/深入理解Activity/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle();' onmouseout='$("#i-prev").toggle();'></i></a></li>
+        
+        
+        <li><a class="icon" href="/2016/10/30/二进制/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+        <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/10/30/Linux常用命令/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/10/30/Linux常用命令/&text=Linux常用命令"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/10/30/Linux常用命令/&title=Linux常用命令"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/10/30/Linux常用命令/&is_video=false&description=Linux常用命令"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="mailto:?subject=Linux常用命令&body=Check out this article: http://yoursite.com/2016/10/30/Linux常用命令/"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/10/30/Linux常用命令/&title=Linux常用命令"><i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/10/30/Linux常用命令/&title=Linux常用命令"><i class="fa fa-reddit" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/10/30/Linux常用命令/&title=Linux常用命令"><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/10/30/Linux常用命令/&title=Linux常用命令"><i class="fa fa-digg" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/10/30/Linux常用命令/&name=Linux常用命令&description="><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux不靠扩展名区分文件类型"><span class="toc-number">2.</span> <span class="toc-text">Linux不靠扩展名区分文件类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询目录中的内容：ls"><span class="toc-number">3.</span> <span class="toc-text">查询目录中的内容：ls</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-number">4.</span> <span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建目录：mkdir-p-目录名"><span class="toc-number">4.1.</span> <span class="toc-text">创建目录：mkdir -p [目录名]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换所在目录：cd"><span class="toc-number">4.2.</span> <span class="toc-text">切换所在目录：cd</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询所在目录位置：pwd"><span class="toc-number">5.</span> <span class="toc-text">查询所在目录位置：pwd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除空目录：rmdir-目录名"><span class="toc-number">6.</span> <span class="toc-text">删除空目录：rmdir [目录名]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除目录或文件：rm"><span class="toc-number">7.</span> <span class="toc-text">删除目录或文件：rm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制命令：cp"><span class="toc-number">8.</span> <span class="toc-text">复制命令：cp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#剪切或改名命令：mv"><span class="toc-number">9.</span> <span class="toc-text">剪切或改名命令：mv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用目录的作用"><span class="toc-number">10.</span> <span class="toc-text">常用目录的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接命令：ln"><span class="toc-number">11.</span> <span class="toc-text">连接命令：ln</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件搜索命令"><span class="toc-number">12.</span> <span class="toc-text">文件搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文件搜索命令：locate"><span class="toc-number">12.1.</span> <span class="toc-text">文件搜索命令：locate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索命令的命令：whereis"><span class="toc-number">12.2.</span> <span class="toc-text">搜索命令的命令：whereis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索命令的命令：which"><span class="toc-number">12.3.</span> <span class="toc-text">搜索命令的命令：which</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件搜索命令：find"><span class="toc-number">12.4.</span> <span class="toc-text">文件搜索命令：find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索字符串命令：grep"><span class="toc-number">12.5.</span> <span class="toc-text">搜索字符串命令：grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find命令和grep命令的区别"><span class="toc-number">12.6.</span> <span class="toc-text">find命令和grep命令的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助命令：man-命令名"><span class="toc-number">13.</span> <span class="toc-text">帮助命令：man [命令名]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看命令拥有哪个级别的帮助"><span class="toc-number">13.1.</span> <span class="toc-text">查看命令拥有哪个级别的帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看和命令相关的所有其他命令"><span class="toc-number">13.2.</span> <span class="toc-text">查看和命令相关的所有其他命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他帮助命令"><span class="toc-number">14.</span> <span class="toc-text">其他帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选项帮助"><span class="toc-number">14.1.</span> <span class="toc-text">选项帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell内部命令帮助"><span class="toc-number">14.2.</span> <span class="toc-text">shell内部命令帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细命令帮助：info"><span class="toc-number">14.3.</span> <span class="toc-text">详细命令帮助：info</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#压缩"><span class="toc-number">15.</span> <span class="toc-text">压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#zip格式压缩"><span class="toc-number">15.1.</span> <span class="toc-text">.zip格式压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gz格式压缩"><span class="toc-number">15.2.</span> <span class="toc-text">.gz格式压缩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bz2格式压缩"><span class="toc-number">16.</span> <span class="toc-text">.bz2格式压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打包命令tar"><span class="toc-number">16.1.</span> <span class="toc-text">打包命令tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解打包命令"><span class="toc-number">16.2.</span> <span class="toc-text">解打包命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-gz压缩格式"><span class="toc-number">16.3.</span> <span class="toc-text">.tar.gz压缩格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-bz2压缩格式"><span class="toc-number">16.4.</span> <span class="toc-text">.tar.bz2压缩格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#压缩注意"><span class="toc-number">16.5.</span> <span class="toc-text">压缩注意</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关机、重启命令"><span class="toc-number">17.</span> <span class="toc-text">关机、重启命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询挂载、自动挂载"><span class="toc-number">18.</span> <span class="toc-text">查询挂载、自动挂载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载命令格式"><span class="toc-number">18.1.</span> <span class="toc-text">挂载命令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载光盘"><span class="toc-number">18.1.1.</span> <span class="toc-text">挂载光盘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#卸载命令"><span class="toc-number">18.1.2.</span> <span class="toc-text">卸载命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载U盘"><span class="toc-number">18.1.3.</span> <span class="toc-text">挂载U盘</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看登陆用户信息"><span class="toc-number">19.</span> <span class="toc-text">查看登陆用户信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询当前登录和过去登录的用户信息"><span class="toc-number">20.</span> <span class="toc-text">查询当前登录和过去登录的用户信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询所有用户的最后一次登录时间"><span class="toc-number">21.</span> <span class="toc-text">查询所有用户的最后一次登录时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shell"><span class="toc-number">22.</span> <span class="toc-text">Shell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shell是什么"><span class="toc-number">22.1.</span> <span class="toc-text">shell是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询当前使用的shell"><span class="toc-number">22.2.</span> <span class="toc-text">查询当前使用的shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo输出命令"><span class="toc-number">22.3.</span> <span class="toc-text">echo输出命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本执行"><span class="toc-number">22.4.</span> <span class="toc-text">脚本执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看与设定别名"><span class="toc-number">22.5.</span> <span class="toc-text">查看与设定别名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用快捷键"><span class="toc-number">23.</span> <span class="toc-text">常用快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#历史命令"><span class="toc-number">24.</span> <span class="toc-text">历史命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输出重定向"><span class="toc-number">25.</span> <span class="toc-text">输出重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入重定向"><span class="toc-number">26.</span> <span class="toc-text">输入重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多命令顺序执行"><span class="toc-number">27.</span> <span class="toc-text">多命令顺序执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#管道符"><span class="toc-number">28.</span> <span class="toc-text">管道符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通配符"><span class="toc-number">29.</span> <span class="toc-text">通配符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bash中其他特殊符号"><span class="toc-number">30.</span> <span class="toc-text">Bash中其他特殊符号</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux常用命令
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Jiaji's blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-10-29T16:00:00.000Z" itemprop="datePublished">2016-10-30</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>, <a class="tag-link" href="/tags/字典/">字典</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Linux中一切皆文件包括硬件也是文件。</p>
+<p>字符界面占用的系统资源资源更少，让操作系统更稳定。</p>
+<h2 id="Linux不靠扩展名区分文件类型"><a href="#Linux不靠扩展名区分文件类型" class="headerlink" title="Linux不靠扩展名区分文件类型"></a>Linux不靠扩展名区分文件类型</h2><blockquote>
+<p>约定名字：</p>
+</blockquote>
+<p>压缩包：.gz、.bz2、.tar.bz2 、.tgz等</p>
+<p>二进制软件包：.rpm</p>
+<p>网页文件:.html、.php</p>
+<p>脚本文件：.sh</p>
+<p>配置文件：.conf</p>
+<h2 id="查询目录中的内容：ls"><a href="#查询目录中的内容：ls" class="headerlink" title="查询目录中的内容：ls"></a>查询目录中的内容：ls</h2><p>ls [选项] [文件或目录]</p>
+<blockquote>
+<p>选项：</p>
+</blockquote>
+<pre><code>-a 显示所有文件，包括隐藏文件
+-l 显示详细信息（简化命令：ll）
+-d 查看目录属性
+-h 人性化显示文件大小
+-i 显示inode（文件id号）
+</code></pre><h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><h3 id="创建目录：mkdir-p-目录名"><a href="#创建目录：mkdir-p-目录名" class="headerlink" title="创建目录：mkdir -p [目录名]"></a>创建目录：mkdir -p [目录名]</h3><pre><code>-p 递归创建目录
+命令英文原意：make directories
+</code></pre><h3 id="切换所在目录：cd"><a href="#切换所在目录：cd" class="headerlink" title="切换所在目录：cd"></a>切换所在目录：cd</h3><blockquote>
+<p>cd [目录]</p>
+</blockquote>
+<pre><code>命令英文原意：change directory
+</code></pre><blockquote>
+<p>简化操作</p>
+</blockquote>
+<pre><code>cd ～    进入当前用户的家目录
+cd 
+cd -    进入上次目录
+cd ..   进入上一级目录
+cd .    进入当前目录
+</code></pre><blockquote>
+<p>相对路径：参照当前所在目录，进行查找</p>
+</blockquote>
+<pre><code>如：  ～$cd ../usr/local/src/
+</code></pre><blockquote>
+<p>绝对路径：从根目录开始指定，一级一级递归查找。在任何目录下，都能进入指定位置</p>
+</blockquote>
+<pre><code>如：～$cd /etc/
+</code></pre><h2 id="查询所在目录位置：pwd"><a href="#查询所在目录位置：pwd" class="headerlink" title="查询所在目录位置：pwd"></a>查询所在目录位置：pwd</h2><pre><code>命令英文原意：print working directory
+</code></pre><h2 id="删除空目录：rmdir-目录名"><a href="#删除空目录：rmdir-目录名" class="headerlink" title="删除空目录：rmdir [目录名]"></a>删除空目录：rmdir [目录名]</h2><pre><code>命令英文原意：remove empty directories
+</code></pre><h2 id="删除目录或文件：rm"><a href="#删除目录或文件：rm" class="headerlink" title="删除目录或文件：rm"></a>删除目录或文件：rm</h2><blockquote>
+<p>rm -rf [文件或目录]</p>
+</blockquote>
+<pre><code>命令英文原意：remove
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-r    删除目录 
+-f    强制
+</code></pre><h2 id="复制命令：cp"><a href="#复制命令：cp" class="headerlink" title="复制命令：cp"></a>复制命令：cp</h2><blockquote>
+<p>cp [选项] [原文件或目录] [目标目录]</p>
+</blockquote>
+<pre><code>命令英文原意：copy
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-r    复制目录
+-p    连带文件属性复制
+-d    若原文件是连接文件，则复制连接属性
+-a    相当于 -pdr
+</code></pre><blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>如果目标目录加上文件名字，则为改名复制。如：mv a.txt ./dir/b.txt(将当前目录的a.txt复制到当前dir目录下，并改名为b.txt)
+如果复制并且不改变更新日期则用选项：-a
+</code></pre><h2 id="剪切或改名命令：mv"><a href="#剪切或改名命令：mv" class="headerlink" title="剪切或改名命令：mv"></a>剪切或改名命令：mv</h2><blockquote>
+<p>mv [原文件或目录] [目标目录]</p>
+</blockquote>
+<pre><code>命令英文原意：move
+</code></pre><blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>命令不同于”cp“区分文件和目录
+当在同一个目录下使用”mv“相当于改名，如：mv a b（将当前目录下的a文件名改为b）
+</code></pre><h2 id="常用目录的作用"><a href="#常用目录的作用" class="headerlink" title="常用目录的作用"></a>常用目录的作用</h2><ul>
+<li>/   根目录</li>
+<li>/bin 命令保存目录（普通用户就可以读取的命令）</li>
+<li>/boot 启动目录，启动相关文件</li>
+<li>/dev 设备文件保存目录</li>
+<li>/etc 配置文件保存目录</li>
+<li>/home 普通用户的家目录</li>
+<li>/lib 系统库保存目录</li>
+<li>/mnt 系统挂载目录</li>
+<li>/media 挂载目录</li>
+<li>/root 超级用户的家目录</li>
+<li>/tmp 临时目录</li>
+<li>/sbin 命令保存目录（超级用户才能使用的目录）</li>
+<li>/proc 直接写入内存的</li>
+<li>/sys</li>
+<li>/usr 系统软件资源目录<ul>
+<li>/usr/bin/系统命令（普通用户）</li>
+<li>/usr/sbin/系统命令（超级用户）</li>
+</ul>
+</li>
+<li>/var系统相关文档内容</li>
+</ul>
+<h2 id="连接命令：ln"><a href="#连接命令：ln" class="headerlink" title="连接命令：ln"></a>连接命令：ln</h2><blockquote>
+<p>ln -s [原文件] [目标文件]</p>
+</blockquote>
+<pre><code>命令英文原意：link
+功能描述：生成链接文件
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-s    创建软链接
+</code></pre><blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>如果不在当前目录，软链接必须要写原文件绝对路径
+</code></pre><blockquote>
+<p>硬链接特征</p>
+</blockquote>
+<pre><code>1. 拥有相同的i节点和存储block块，可以看做是同一个文件
+2. 可以通过i节点识别
+3. 不能跨分区
+4. 不能针对目录使用
+</code></pre><blockquote>
+<p>软链接特征</p>
+</blockquote>
+<pre><code>1. 类似Windows的快捷方式
+2. 软链接拥有自己的i节点和block快，但是数据块中只保存原文件的文件名和i节点号，并没有实际的文件数据。
+3. lrwxrwxrwx     l:软链接        软链接文件权限都为rwxrwxrwx
+4. 修改任意文件，另一个都改变。
+5. 删除原文件，软链接不能使用。
+</code></pre><h2 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h2><h3 id="文件搜索命令：locate"><a href="#文件搜索命令：locate" class="headerlink" title="文件搜索命令：locate"></a>文件搜索命令：locate</h3><blockquote>
+<p>locate [文件名]</p>
+</blockquote>
+<pre><code>在后台数据库中按文件名搜索，搜索速度更快
+</code></pre><blockquote>
+<p>/var/lib/mlocate</p>
+</blockquote>
+<pre><code>locate命令搜索的后台数据库
+</code></pre><blockquote>
+<p>updatedb</p>
+</blockquote>
+<pre><code>更新数据库
+</code></pre><h3 id="搜索命令的命令：whereis"><a href="#搜索命令的命令：whereis" class="headerlink" title="搜索命令的命令：whereis"></a>搜索命令的命令：whereis</h3><pre><code>搜索命令所在路径及帮组文档所在位置
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-b    只查找可执行文件
+-m    只查找帮助文件
+</code></pre><h3 id="搜索命令的命令：which"><a href="#搜索命令的命令：which" class="headerlink" title="搜索命令的命令：which"></a>搜索命令的命令：which</h3><pre><code>搜索命令所在路径及别名
+</code></pre><h3 id="文件搜索命令：find"><a href="#文件搜索命令：find" class="headerlink" title="文件搜索命令：find"></a>文件搜索命令：find</h3><blockquote>
+<p>find [搜索范围] [搜索条件] </p>
+</blockquote>
+<pre><code>如：
+    find /home -name abc
+    find /home -mtime +10
+</code></pre><blockquote>
+<p>搜索条件</p>
+</blockquote>
+<pre><code>-iname  不区分大小写
+-user   按照所有者搜索
+-nouser 查找没有所有者的文件
+-mtime +10 查找10天前修改的文件（[+10：十天前][10：10天当天][-10:10天内]）
+-ctime +10 查找10天前改变文件属性的文件
+-mtime +10 查找10天前修改文件内容的文件
+-size 25k 大小是25KB的文件（[-25k：小于25KB的文件][25:25KB的文件][+25KB：大于25KB的文件][注意：KB单位用小写“k”表示，MB单位用大写“M”表示]）
+-inum 6587398 查找i节点是6587398的文件
+</code></pre><blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>避免大范围搜索，会非常耗费系统资源
+find是在系统当中搜索符合条件的文件名。如果需要匹配，使用通配符匹配，通配符是完全匹配。
+</code></pre><blockquote>
+<p>Linux中的通配符</p>
+</blockquote>
+<pre><code>*   匹配任意内容
+?   匹配任意一个字符
+[]  匹配任意一个中括号内的字符
+使用，在当前目录查询以a开头的文件：find . -name &quot;a*&quot;
+</code></pre><blockquote>
+<p>使用条件语句，例子：find /etc -size +20k -a -size -50k</p>
+</blockquote>
+<pre><code>查找/etc/目录下，大于20kb并且小于50kb的文件
+-a    and    逻辑与，两个条件都满足
+-o    or     逻辑或，两个条件满足一个即可
+</code></pre><blockquote>
+<p>对搜索结果执行操作，例子：find /etc -size +20k -a -size -50k -exec ls -lh {} \;</p>
+</blockquote>
+<pre><code>查找/etc/目录下，大于20kb并且小于50kb的文件，并显示详细信息
+-exec/-ok [命令] {} \;对搜索结果执行操作
+</code></pre><h3 id="搜索字符串命令：grep"><a href="#搜索字符串命令：grep" class="headerlink" title="搜索字符串命令：grep"></a>搜索字符串命令：grep</h3><blockquote>
+<p>grep [选项] 字符串 文件名</p>
+</blockquote>
+<pre><code>在文件中匹配符合条件的字符串
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-i    忽略大小写
+-v    排除指定字符串
+</code></pre><h3 id="find命令和grep命令的区别"><a href="#find命令和grep命令的区别" class="headerlink" title="find命令和grep命令的区别"></a>find命令和grep命令的区别</h3><pre><code>find命令：在系统当中搜索符合条件的文件名，如果需要匹配，时使用通配符匹配，通配符是完全匹配。
+grep命令：在文件中搜索符合条件的字符串，如果需要匹配，使用正则表达式进行匹配，正则表达式包含。
+</code></pre><h2 id="帮助命令：man-命令名"><a href="#帮助命令：man-命令名" class="headerlink" title="帮助命令：man [命令名]"></a>帮助命令：man [命令名]</h2><h3 id="查看命令拥有哪个级别的帮助"><a href="#查看命令拥有哪个级别的帮助" class="headerlink" title="查看命令拥有哪个级别的帮助"></a>查看命令拥有哪个级别的帮助</h3><blockquote>
+<p>“man -f”  命令   相当于 “whatis”  命令</p>
+</blockquote>
+<pre><code>查询对应级别的帮助，举例：
+man 5 passwd
+man 4 null
+man 8 ifconfig
+</code></pre><h3 id="查看和命令相关的所有其他命令"><a href="#查看和命令相关的所有其他命令" class="headerlink" title="查看和命令相关的所有其他命令"></a>查看和命令相关的所有其他命令</h3><blockquote>
+<p>“man -k” 命令  相当于 “apropos” 命令</p>
+</blockquote>
+<pre><code>例如：apropos passwd
+</code></pre><h2 id="其他帮助命令"><a href="#其他帮助命令" class="headerlink" title="其他帮助命令"></a>其他帮助命令</h2><h3 id="选项帮助"><a href="#选项帮助" class="headerlink" title="选项帮助"></a>选项帮助</h3><blockquote>
+<p>[命令] –help</p>
+</blockquote>
+<pre><code>获取命令选项的帮助
+例如：ls --help
+</code></pre><h3 id="shell内部命令帮助"><a href="#shell内部命令帮助" class="headerlink" title="shell内部命令帮助"></a>shell内部命令帮助</h3><blockquote>
+<p>help [shell内部命令]</p>
+</blockquote>
+<pre><code>获取shell内部命令的帮助
+例如：
+1.whereis cd    确定是否是shell内部命令
+2.help cd    获取内部命令的帮助
+</code></pre><h3 id="详细命令帮助：info"><a href="#详细命令帮助：info" class="headerlink" title="详细命令帮助：info"></a>详细命令帮助：info</h3><blockquote>
+<p>info [命令]</p>
+</blockquote>
+<pre><code>回车 ：进入子帮助页面（带有*号标记）
+u：进入上一层页面
+n：进入下一个帮组小节
+p：进入上一个帮助小节
+q：退出
+</code></pre><h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><blockquote>
+<p>常用压缩格式：</p>
+</blockquote>
+<pre><code>.zip
+.gz
+.bz2
+.tar.gz
+.tar.bz2
+</code></pre><h3 id="zip格式压缩"><a href="#zip格式压缩" class="headerlink" title=".zip格式压缩"></a>.zip格式压缩</h3><blockquote>
+<p>zip [压缩文件名] [源文件]</p>
+</blockquote>
+<pre><code>压缩文件
+</code></pre><blockquote>
+<p>zip -r [压缩文件名] [源目录]</p>
+</blockquote>
+<pre><code>压缩目录
+</code></pre><blockquote>
+<p>unzip [压缩文件]</p>
+</blockquote>
+<pre><code>解压缩.zip文件
+</code></pre><h3 id="gz格式压缩"><a href="#gz格式压缩" class="headerlink" title=".gz格式压缩"></a>.gz格式压缩</h3><blockquote>
+<p>gzip [源文件]</p>
+</blockquote>
+<pre><code>压缩为.gz格式的压缩文件，源文件会消失
+</code></pre><blockquote>
+<p>gzip -c [源文件] &gt; [压缩文件]</p>
+</blockquote>
+<pre><code>压缩为.gz格式，源文件保留
+例如： gzip -c abc &gt; abc.gz
+</code></pre><blockquote>
+<p>gzip -r [目录]</p>
+</blockquote>
+<pre><code>压缩目录下所有的子文件，但是不能压缩目录。（每个子文件都被单独压缩）
+</code></pre><blockquote>
+<p>gzip -d [压缩文件]</p>
+</blockquote>
+<pre><code>解压缩文件
+</code></pre><blockquote>
+<p>gunzip [压缩文件]</p>
+</blockquote>
+<pre><code>解压缩文件
+</code></pre><h2 id="bz2格式压缩"><a href="#bz2格式压缩" class="headerlink" title=".bz2格式压缩"></a>.bz2格式压缩</h2><blockquote>
+<p>bzip2 [源文件]</p>
+</blockquote>
+<pre><code>压缩为.bz2格式，不保留源文件
+</code></pre><blockquote>
+<p>bzip2 -k [源文件]</p>
+</blockquote>
+<pre><code>压缩之后保留源文件
+</code></pre><blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>bzip2命令不能压缩目录
+</code></pre><blockquote>
+<p>bzip2 -d [压缩文件]</p>
+</blockquote>
+<pre><code>解压缩，-k保留压缩文件
+</code></pre><blockquote>
+<p>bunzip2 [压缩文件]</p>
+</blockquote>
+<pre><code>解压缩，-k保留压缩文件
+</code></pre><h3 id="打包命令tar"><a href="#打包命令tar" class="headerlink" title="打包命令tar"></a>打包命令tar</h3><blockquote>
+<p>tar -cvf [打包文件名] [源文件]</p>
+</blockquote>
+<pre><code>例如：tar -cvf abc.tar abc
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-c：打包
+-v：显示过程
+-f：指定打包后的文件名
+</code></pre><h3 id="解打包命令"><a href="#解打包命令" class="headerlink" title="解打包命令"></a>解打包命令</h3><blockquote>
+<p>tar -xvf [打包文件名]</p>
+</blockquote>
+<pre><code>例如：tar -xvf abc.tar
+</code></pre><blockquote>
+<p>选项</p>
+</blockquote>
+<pre><code>-x:接打包
+</code></pre><h3 id="tar-gz压缩格式"><a href="#tar-gz压缩格式" class="headerlink" title=".tar.gz压缩格式"></a>.tar.gz压缩格式</h3><blockquote>
+<p>其实.tar.gz格式是先打包成.tar格式，再压缩为.gz格式</p>
+<p>tar -zcvf [压缩包名.tar.gz] [源文件]</p>
+</blockquote>
+<pre><code>-z:压缩为.tar.gz格式
+</code></pre><blockquote>
+<p>tar -zxvf [压缩包名.tar.gz]</p>
+</blockquote>
+<pre><code>-x:解压缩.tar.gz格式
+</code></pre><h3 id="tar-bz2压缩格式"><a href="#tar-bz2压缩格式" class="headerlink" title=".tar.bz2压缩格式"></a>.tar.bz2压缩格式</h3><blockquote>
+<p>tar -jcvf [压缩包名.tar.gz] [源文件]</p>
+</blockquote>
+<pre><code>-j:压缩为.tar.bz2格式
+</code></pre><blockquote>
+<p>tar -jxvf [压缩包名.tar.gz]</p>
+</blockquote>
+<pre><code>-x:解压缩.tar.bz2格式
+</code></pre><h3 id="压缩注意"><a href="#压缩注意" class="headerlink" title="压缩注意"></a>压缩注意</h3><blockquote>
+<p>指定解压缩目录加大C</p>
+</blockquote>
+<pre><code>例如：tar -jxvf dir.tar.bz2 -C /tmp/
+</code></pre><blockquote>
+<p>可以同时压缩多个文件</p>
+</blockquote>
+<pre><code>例如：tar -zcvf test.tar.gz abc cba
+</code></pre><blockquote>
+<p>可以指定压缩文件放到哪个目录，只需在压缩文件名前加路径</p>
+</blockquote>
+<pre><code>例如：tar -zcvf /tmp/test.tar.gz abc
+</code></pre><blockquote>
+<p>只查看压缩包文件，不解压：tar -ztvf [压缩文件]</p>
+</blockquote>
+<pre><code>例如：tar -ztvf test.tar.gz
+</code></pre><h2 id="关机、重启命令"><a href="#关机、重启命令" class="headerlink" title="关机、重启命令"></a>关机、重启命令</h2><blockquote>
+<p>shutdown [选项] [时间]</p>
+</blockquote>
+<pre><code>-c    取消前一个关机命令
+-h    关机
+-r    重启
+</code></pre><blockquote>
+<p>例子</p>
+</blockquote>
+<pre><code>9:30重启：shutdown -r 09:30
+9:30重启运行在后台：shutdown -r 09:30 &amp;
+立即重启：shutdown -r now
+</code></pre><blockquote>
+<p>其他关机命令：halt、poweroff、init 0</p>
+</blockquote>
+<pre><code>不推荐使用，相当于直接关电源
+</code></pre><blockquote>
+<p>其他的重启命令：reboot、init 6</p>
+</blockquote>
+<pre><code>reboot还算安全
+</code></pre><blockquote>
+<p>系统运行级别：init </p>
+</blockquote>
+<pre><code>0   关机
+1   单用户
+2   不完全多用户，不含NFS服务
+3   完全多用户
+4   未分配
+5   图形界面
+6   重启
+</code></pre><blockquote>
+<p>cat /etc/inittab</p>
+</blockquote>
+<pre><code>修改系统名默认运行级别
+</code></pre><blockquote>
+<p>runlevel</p>
+</blockquote>
+<pre><code>查询系统运行级别
+</code></pre><blockquote>
+<p>登出登录命令：logout</p>
+</blockquote>
+<h2 id="查询挂载、自动挂载"><a href="#查询挂载、自动挂载" class="headerlink" title="查询挂载、自动挂载"></a>查询挂载、自动挂载</h2><blockquote>
+<p>mount</p>
+</blockquote>
+<pre><code>查询系统中已经挂载的设备
+</code></pre><blockquote>
+<p>mount -a</p>
+</blockquote>
+<pre><code>依据配置文件/etc/fstab的内容自动挂载
+</code></pre><h3 id="挂载命令格式"><a href="#挂载命令格式" class="headerlink" title="挂载命令格式"></a>挂载命令格式</h3><blockquote>
+<p>mount -t [文件系统] -o [特殊选项] [设备文件名] [挂载点]</p>
+</blockquote>
+<pre><code>文件系统：挂载点类型，可以是ext3、ext4、iso9660等文件系统。
+特殊选项：可以指定挂载的额外选项。
+</code></pre><h4 id="挂载光盘"><a href="#挂载光盘" class="headerlink" title="挂载光盘"></a>挂载光盘</h4><blockquote>
+<p>mkdir /mnt/cdrom/</p>
+</blockquote>
+<pre><code>创建挂载点（任意位置都可以作为挂载点）
+</code></pre><blockquote>
+<p>mount -t iso9660 /dev/sr0 /mnt/cdrom</p>
+</blockquote>
+<pre><code>挂载光盘。注：设备文件名：/dev/cdrom是/dev/sr0的软链接。“ -t iso9660”可以不写。
+</code></pre><h4 id="卸载命令"><a href="#卸载命令" class="headerlink" title="卸载命令"></a>卸载命令</h4><blockquote>
+<p>umount [设备文件名或挂载点]</p>
+</blockquote>
+<pre><code>例：umount /mnt/cdrom
+</code></pre><h4 id="挂载U盘"><a href="#挂载U盘" class="headerlink" title="挂载U盘"></a>挂载U盘</h4><blockquote>
+<p>fdisk -l</p>
+</blockquote>
+<pre><code>查看U盘设备 文件名
+</code></pre><blockquote>
+<p>mount -t vfat /dev/sdb1 /mnt/usb/</p>
+</blockquote>
+<pre><code>挂载U盘。注：Linux默认不是支持NTFS文件系统的
+</code></pre><h2 id="查看登陆用户信息"><a href="#查看登陆用户信息" class="headerlink" title="查看登陆用户信息"></a>查看登陆用户信息</h2><blockquote>
+<p>w [用户名]</p>
+</blockquote>
+<pre><code>可直接w
+</code></pre><blockquote>
+<p>w命令输出</p>
+</blockquote>
+<pre><code>USER：登陆的用户名
+TTY：登陆终端
+FROM：从那个IP地址登陆
+LOGIN@：登陆时间
+IDLE：用户闲置时间
+JCPU：指的是和该终端连接的所有进程占用的时间。这个时间里并不包括过去的后台作业时间，但却包括当前正在运行的后台作业所占用的时间。
+PCPU：指当前进程所占用的时间
+WHAT：当前正在运行的命令
+</code></pre><blockquote>
+<p>who</p>
+</blockquote>
+<pre><code>直接who
+</code></pre><blockquote>
+<p>who命令输出</p>
+</blockquote>
+<pre><code>用户名
+登录终端
+登录时间（登录来源IP地址）
+</code></pre><h2 id="查询当前登录和过去登录的用户信息"><a href="#查询当前登录和过去登录的用户信息" class="headerlink" title="查询当前登录和过去登录的用户信息"></a>查询当前登录和过去登录的用户信息</h2><blockquote>
+<p>last</p>
+</blockquote>
+<pre><code>last命令默认是读取&quot;/var/log/wtmp&quot;文件数据
+</code></pre><blockquote>
+<p>last命令输出</p>
+</blockquote>
+<pre><code>用户名
+登录终端
+登录IP
+登录时间
+退出时间（在线时间）
+</code></pre><h2 id="查询所有用户的最后一次登录时间"><a href="#查询所有用户的最后一次登录时间" class="headerlink" title="查询所有用户的最后一次登录时间"></a>查询所有用户的最后一次登录时间</h2><blockquote>
+<p>lastlog</p>
+</blockquote>
+<pre><code>last命令默认是读取&quot;/var/log/lastlog&quot;文件数据
+</code></pre><blockquote>
+<p>last命令输出</p>
+</blockquote>
+<pre><code>用户名
+登录终端
+登录IP
+最后一次登录时间
+</code></pre><h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><h3 id="shell是什么"><a href="#shell是什么" class="headerlink" title="shell是什么"></a>shell是什么</h3><pre><code>1. shell是一个命令行解释器，它为用户提供了一个向Linux内核发送请求以便
+运行程序的界面系统级程序，用户可以用Shell来启动、挂载、停止甚至是编写一些程序。
+2. shell还是一个功能相当强大的编程语言，易编写，易调试，灵活性较强。
+shell是解释执行的脚本语言，在shell中可以直接调用Linux系统命令。
+</code></pre><h3 id="查询当前使用的shell"><a href="#查询当前使用的shell" class="headerlink" title="查询当前使用的shell"></a>查询当前使用的shell</h3><blockquote>
+<p>echo $SHELL</p>
+</blockquote>
+<h3 id="echo输出命令"><a href="#echo输出命令" class="headerlink" title="echo输出命令"></a>echo输出命令</h3><blockquote>
+<p>echo [选项] [输出内容]</p>
+</blockquote>
+<pre><code>-e    支持反斜杠线控制的字符转换
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">控制字符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\a</td>
+<td>输出警告音</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td>退格键，也就是向左删除键</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td>回车键</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td>制表符，也就是Tab键</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\0nnn</td>
+<td>按照八进制ASCII码表输出字符。其中0为数字零，nnn是三位八进制数</td>
+</tr>
+<tr>
+<td style="text-align:center">\xhh</td>
+<td>按照十六进制ASCII码表输出字符。其中hh是两位十六进制数</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>echo -e “\e[1;31m 这是什么颜色 \e[0m”</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>颜色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30m</td>
+<td>黑色</td>
+</tr>
+<tr>
+<td>31m</td>
+<td>红色</td>
+</tr>
+<tr>
+<td>32m</td>
+<td>绿色</td>
+</tr>
+<tr>
+<td>33m</td>
+<td>黄色</td>
+</tr>
+<tr>
+<td>34m</td>
+<td>蓝色</td>
+</tr>
+<tr>
+<td>35m</td>
+<td>洋红</td>
+</tr>
+<tr>
+<td>36m</td>
+<td>青色</td>
+</tr>
+<tr>
+<td>37m</td>
+<td>白色</td>
+</tr>
+</tbody>
+</table>
+<h3 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h3><blockquote>
+<p>chmod 755 hello.sh</p>
+<p>./hello.sh</p>
+</blockquote>
+<pre><code>赋予执行权限，直接运行
+</code></pre><blockquote>
+<p>bash hello.sh</p>
+</blockquote>
+<pre><code>通过Bash调用执行脚本
+</code></pre><h3 id="查看与设定别名"><a href="#查看与设定别名" class="headerlink" title="查看与设定别名"></a>查看与设定别名</h3><blockquote>
+<p>alias</p>
+</blockquote>
+<pre><code>查看系统中所有的命令别名
+</code></pre><blockquote>
+<p>alias [别名] = ‘[原命令]’</p>
+</blockquote>
+<pre><code>设定命令别名
+</code></pre><blockquote>
+<p>vim ~/.bashrc</p>
+</blockquote>
+<pre><code>如果要永久生效，写入环境变量配置文件
+立即生效：source ~/.bashrc
+</code></pre><blockquote>
+<p>unalias [别名]</p>
+</blockquote>
+<pre><code>删除别名
+</code></pre><blockquote>
+<p>命令生效顺序：绝对路径 &gt; 别名 &gt; Bash内部命令 &gt; $PATH环境变量</p>
+</blockquote>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ctrl+c</td>
+<td>强制终止当前命令</td>
+</tr>
+<tr>
+<td>ctrl+l</td>
+<td>清屏</td>
+</tr>
+<tr>
+<td>ctrl+a</td>
+<td>光标移动到命令行首</td>
+</tr>
+<tr>
+<td>ctrl+e</td>
+<td>光标移动到命令行尾</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>从光标所在位置删除到行首</td>
+</tr>
+<tr>
+<td>ctrl+z</td>
+<td>把命令放入后台</td>
+</tr>
+<tr>
+<td>ctrl+r</td>
+<td>在历史命令中搜索</td>
+</tr>
+</tbody>
+</table>
+<h2 id="历史命令"><a href="#历史命令" class="headerlink" title="历史命令"></a>历史命令</h2><blockquote>
+<p>history [选项] [历史命令保存文件]</p>
+</blockquote>
+<pre><code>-c    清空历史命令
+-w    把缓存中的历史命令写入历史命令保存文件:~/.bash_history
+</code></pre><blockquote>
+<p>历史命令的调用</p>
+</blockquote>
+<pre><code>使用上下箭头调用以前的历史命令
+使用&quot;!n&quot;重复执行第n条历史命令
+使用&quot;!!&quot;重复执行上一条命令
+使用&quot;![字符]&quot;重复执行最后一条以该字符串开头的命令
+</code></pre><h2 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[命令] &gt; [文件]</td>
+<td>覆盖方式，将正确结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] &gt;&gt; [文件]</td>
+<td>追加方式，将正确结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] 2&gt;[文件]</td>
+<td>覆盖方式，将错误命令结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] 2&gt;&gt;[文件]</td>
+<td>追加方式，将错误命令结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] &gt; [文件] 2&gt;&amp;1</td>
+<td>覆盖方式，将正确和错误命令结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] &gt;&gt; [文件] 2&gt;&amp;1</td>
+<td>追加方式，将正确和错误命令结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] &amp;&gt;[文件]</td>
+<td>覆盖方式，将正确和错误命令结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] &amp;&gt;&gt;[文件]</td>
+<td>追加方式，将正确和错误命令结果输出到指定文件</td>
+</tr>
+<tr>
+<td>[命令] &gt;&gt; [文件1] 2&gt;&gt;[文件2]</td>
+<td>追加方式，将正确结果输出到文件1，将错误结果输出到文件2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>补充</p>
+</blockquote>
+<pre><code>上边的数字表示：
+    0表示键盘设备&quot;/dev/stdin&quot;标准输入
+    1表示显示器设备&quot;/dev/sdtout&quot;标准输出
+    2表示显示器设备&quot;/dev/sdterr&quot;标准错误输出
+不想看到输出过程，如：ls &amp;&gt;/dev/null
+</code></pre><h2 id="输入重定向"><a href="#输入重定向" class="headerlink" title="输入重定向"></a>输入重定向</h2><blockquote>
+<p>wc [选项] [文件名]</p>
+</blockquote>
+<pre><code>-c    统计字节数
+-w    统计单词数
+-l    统计行数
+</code></pre><blockquote>
+<p>wc test.log或wc &lt; test.log</p>
+</blockquote>
+<pre><code>统计test.log
+</code></pre><h2 id="多命令顺序执行"><a href="#多命令顺序执行" class="headerlink" title="多命令顺序执行"></a>多命令顺序执行</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">多命令执行符</th>
+<th>格式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">;</td>
+<td>[命令1];[命令2]</td>
+<td>多个命令顺序执行，命令之间没有任何逻辑联系</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;&amp;</td>
+<td>[命令1]&amp;&amp;[命令2]</td>
+<td>命令1正确则执行命令2，否则不执行命令2</td>
+</tr>
+<tr>
+<td style="text-align:center">&#124;&#124;</td>
+<td>[命令1]&#124;&#124;[命令2]</td>
+<td>命令1不正确才执行命令2，正确则不执行命令2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h2><blockquote>
+<p>[命令1] | [命令2]</p>
+</blockquote>
+<pre><code>命令1的正确输出作为命令2的操作对象
+例：
+    ls -l /etc/ | more
+    netstat -an | grep &quot;ESTABLISHED&quot;
+</code></pre><h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">通配符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">?</td>
+<td>匹配1个任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td>匹配≥0个任意字符</td>
+</tr>
+<tr>
+<td style="text-align:center">[]</td>
+<td>匹配中括号中任意1个字符。如：[abc]代表匹配或a，或b，或者c</td>
+</tr>
+<tr>
+<td style="text-align:center">[-]</td>
+<td>匹配范围内1个字符。如：[a-z]代表匹配小写字母</td>
+</tr>
+<tr>
+<td style="text-align:center">[^]</td>
+<td>逻辑非，匹配不在括号中的1个字符。如：[^0-9]代表非数字字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Bash中其他特殊符号"><a href="#Bash中其他特殊符号" class="headerlink" title="Bash中其他特殊符号"></a>Bash中其他特殊符号</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">‘’</td>
+<td>单引号。单引号中的所有特殊符号，如”$”、”`“等都没有特殊含义</td>
+</tr>
+<tr>
+<td style="text-align:center">“”</td>
+<td>双引号。双引号中的特殊字符没有特殊含义，除了：”$”、”`“、”\“是例外，<br>拥有“调用变量的值”、“引用命令”、“转义符”的特殊含义</td>
+</tr>
+<tr>
+<td style="text-align:center">``</td>
+<td>反引号。反引号扩起来的是系统命令，在Bash中会先执行它</td>
+</tr>
+<tr>
+<td style="text-align:center">$()</td>
+<td>和反引号作用一样，推荐使用这个，不容易看错</td>
+</tr>
+<tr>
+<td style="text-align:center">#</td>
+<td>在Shell脚本中，#开头代表注释</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td>调用变量的值，如：得到name变量的值：$name</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td>转义符，使特殊符变成普通字符</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+      </div>
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Jiaji&#39;s blog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/xujiaji">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'jiajixu';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
